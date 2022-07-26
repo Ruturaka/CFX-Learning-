@@ -40,9 +40,13 @@ class RockPaperScissor
 
     //Driver Method
     public static void main(String[] args) {
-        int i=1,c1=0,c2=0;
-
-        while (i <= 5)
+        int i=1,c1=0,c2=0,n;
+        
+        System.out.println("How many rounds you want to play?");
+        Scanner sc=new Scanner(System.in);
+        n=sc.nextInt();
+        
+        while (i <= n)
         {
             System.out.println("Round "+i+" starts:");
             System.out.println("Rutu enter Rock, Paper or Scissor: ");
@@ -62,33 +66,13 @@ class RockPaperScissor
 
                 case 2->System.out.println("Computer chooses: Scissor\n");
             }
-
-            if(val1==0 && val2==1)
+            
+            if(val1==0 && val2==1 || val1==1 && val2==2 || val1==2 && val2==0)
             {
                 System.out.println("\nComputer is winner");
                 c2++;
             }
-            else if(val1==0 && val2==2)
-            {
-                System.out.println("\nRutu is winner");
-                c1++;
-            }
-            else if(val1==1 && val2==0)
-            {
-                System.out.println("\nRutu is winner");
-                c1++;
-            }
-            else if(val1==1 && val2==2)
-            {
-                System.out.println("\nComputer is winner");
-                c2++;
-            }
-            else if(val1==2 && val2==0)
-            {
-                System.out.println("\nComputer is winner");
-                c2++;
-            }
-            else if(val1==2 && val2==1)
+            else if(val1==0 && val2==2 || val1==1 && val2==0 || val1==2 && val2==1)
             {
                 System.out.println("\nRutu is winner");
                 c1++;
@@ -97,6 +81,7 @@ class RockPaperScissor
                 System.out.println("\nIt's a tie");
             i++;
         }
+
         System.out.println("\nRutu's score: "+c1);
         System.out.println("\nComputer's score: "+c2);
 
